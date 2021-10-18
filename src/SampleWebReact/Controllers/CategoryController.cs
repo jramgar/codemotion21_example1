@@ -18,7 +18,7 @@ namespace SampleWebReact.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetById(int id)
+        public ActionResult GetById(string id)
         {
             var categoryQuery = new CategoryQuery();
             return Ok(categoryQuery.GetDataSetByCategory(id));

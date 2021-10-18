@@ -8,7 +8,7 @@ namespace SampleWebReact.Services
     {
         string connectionString;
 
-        public DataSet GetDataSetByCategory(int id)
+        public DataSet GetDataSetByCategory(string id)
         {
             using var connection = new SqlConnection(connectionString);
             var query1 = "SELECT ITEM,PRICE FROM PRODUCT WHERE ITEM_CATEGORY='" + id + "' ORDER BY PRICE";
