@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SampleWebReact.Data;
+using SampleWebReact.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,11 @@ namespace SampleWebReact.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-        private readonly ApplicationDbContext _dbContext;
+        private readonly ILogger<WeatherForecastController> _logger;        
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, ApplicationDbContext dbContext)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
-            _logger = logger;
-            _dbContext = dbContext;
+            _logger = logger;            
         }
 
         [HttpGet]
@@ -39,14 +38,6 @@ namespace SampleWebReact.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
-        }
-
-        [HttpGet]
-        public ActionResult GetById(int id)
-        {
-            var sql = "SELECT * FROM TABLE WHERE ID = " + id;
-            
-            return Ok(sql);
-        }
+        }        
     }
 }
