@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SampleWebReact.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,12 @@ namespace SampleWebReact.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ApplicationDbContext _dbContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ApplicationDbContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
         }
 
         [HttpGet]
@@ -36,6 +39,14 @@ namespace SampleWebReact.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet]
+        public ActionResult GetById(int id)
+        {
+            var sql = "SELECT * FROM TABLE WHERE ID = " + id;
+            
+            return Ok(sql);
         }
     }
 }
