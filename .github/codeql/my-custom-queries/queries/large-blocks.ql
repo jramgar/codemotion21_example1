@@ -1,10 +1,11 @@
 /**
- * @id large-blocks
+ * @id cs/examples/large-blocks
  * @name Large blocks
  * @description Finds block statements containing a large statement.
- * @tags readability
- *       refactor
- * @kind path-problem
+ * @tags equals
+ *       test
+ *       boolean
+ * @kind problem
  */
 
 import csharp
