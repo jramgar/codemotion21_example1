@@ -1,7 +1,7 @@
 /**
- * @id cs/examples/eq-true
- * @name Equality test on Boolean
- * @description Finds tests like 'x==true', 'x==false', 'x!=true', '!=false'.
+ * @id large-blocks
+ * @name Large blocks
+ * @description Finds block statements containing a large statement.
  * @tags equals
  *       test
  *       boolean
