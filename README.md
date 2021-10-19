@@ -1,6 +1,24 @@
 # CODEMOTION 2021 - No sólo clean code, también código seguro
 
 ---
+
+## Activar CodeQL
+
+1. Crear WorkFlow Análisis de Código
+2. Personalizar el workflow
+ - Activando mas lenguajes
+  ```yml
+  # line 49
+  language: [ 'csharp', 'javascript', 'typescript' ]
+  ```
+ - Incluyendo fichero de configuración
+  ```yml
+  # line 35
+  config-file: ./.github/codeql/codeql-config.yml
+  ```
+3. Ejecutar WorkFlow con push
+
+
 ## Análisis código local
 ### 1. Crear un WorkSpace de CodeQL
 https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/
@@ -28,6 +46,9 @@ codeql database create csharp-database --language=csharp --command='dotnet build
 1. Cargamos la base de datos generada en el punto anterior
 
 2. Creamos una consulta de ejemplo en un ficher .ql y con la extensión de VS Code la ejecutams para ver resultados
+
+https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/
+
 ```javascript
 
 /**
@@ -44,4 +65,4 @@ from BlockStmt b
 where b.getNumberOfStmts() > 10
 select b
 ```
-3. Ejecutamos la consulta con la extensión
+1. Ejecutamos la consulta con la extensión
