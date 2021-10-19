@@ -1,4 +1,6 @@
 name: codeql-csharp-examples
 version: 0.0.0
 libraryPathDependencies: 
-- codeql-csharp
+  codeql/csharp-all: "*"
+  codeql/csharp-queries: "*"
+extractor: csharp
