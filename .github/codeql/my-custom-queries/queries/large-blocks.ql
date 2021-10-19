@@ -4,12 +4,12 @@
  * @description Finds block statements containing a large statement.
  * @tags block
  *       statement
+ *       readability
  * @problem.severity recommendation
- * @tags readability
  */
 
 import csharp
 
 from BlockStmt b
 where b.getNumberOfStmts() > 10
-select  b
+select  b, "My custom query example"

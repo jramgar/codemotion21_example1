@@ -12,4 +12,4 @@ import csharp
 
 from EqualityOperation eq
 where eq.getAnOperand() instanceof BoolLiteral
-select eq, "My custom query example for DotNet2020"
+select eq, "My custom query example"
